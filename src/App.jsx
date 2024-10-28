@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Description from "./components/Description/Description";
 import Feedback from "./components/Feedback/Feedback";
 import Options from "./components/Options/Options";
@@ -12,8 +12,17 @@ function App() {
     bad: 0,
   };
   const [feedback, setFeedback] = useState(() => {
+    const savedFeedback = window.localStorage.getItem("saved-feedback");
+    if (savedFeedback !== null) {
+      return JSON.parse(savedFeedback);
+    }
     return typeRewiews;
   });
+
+  useEffect(() => {
+    window.localStorage.setItem("saved-feedback", JSON.stringify(feedback));
+  }, [feedback]);
+
   const updateFeedback = (feedbackType) => {
     setFeedback({
       ...feedback,
@@ -21,6 +30,7 @@ function App() {
     });
   };
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+  const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
 
   const resetFeedbackButton = () => setFeedback(typeRewiews);
   return (
@@ -31,7 +41,13 @@ function App() {
         resetFeedback={totalFeedback >= 1}
         resetButton={resetFeedbackButton}
       />
-      {totalFeedback >= 1 && <Feedback counter={feedback} />}
+      {totalFeedback >= 1 && (
+        <Feedback
+          counter={feedback}
+          feedbackTotal={totalFeedback}
+          feedbackPositive={positiveFeedback}
+        />
+      )}
       {totalFeedback < 1 && <Notification />}
     </>
   );
