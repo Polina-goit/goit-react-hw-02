@@ -1,0 +1,24 @@
+.buttonList {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+
+  margin-bottom: 15px;
+}
+
+.optionButton {
+  min-width: 100px;
+  padding: 10px 15px;
+  border-radius: 40px;
+  background-color: #0c14f9;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.optionButton:hover {
+  background-color: #0c14f9ae;
+}

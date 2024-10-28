@@ -3,7 +3,7 @@ import Description from "./components/Description/Description";
 import Feedback from "./components/Feedback/Feedback";
 import Options from "./components/Options/Options";
 import Notification from "./components/Notification/Notification";
-import "./App.css";
+import css from "./App.module.css";
 
 function App() {
   const typeRewiews = {
@@ -34,7 +34,7 @@ function App() {
 
   const resetFeedbackButton = () => setFeedback(typeRewiews);
   return (
-    <>
+    <section className={css.container}>
       <Description />
       <Options
         onClickFeedback={(feedbackType) => updateFeedback(feedbackType)}
@@ -49,7 +49,7 @@ function App() {
         />
       )}
       {totalFeedback < 1 && <Notification />}
-    </>
+    </section>
   );
 }
 

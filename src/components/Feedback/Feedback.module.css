@@ -1,0 +1,17 @@
+.feedbackContainer {
+  width: 500px;
+  padding: 10px 20px;
+  margin: 0 auto;
+
+  background-color: #5b9df2;
+  border-radius: 4px;
+}
+
+.feedbackText {
+  color: aliceblue;
+  font-size: 30px;
+  line-height: 1.33;
+  letter-spacing: -0.01em;
+
+  padding-left: 180px;
+}
