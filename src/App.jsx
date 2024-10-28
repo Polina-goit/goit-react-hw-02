@@ -22,11 +22,14 @@ function App() {
   };
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
 
+  const resetFeedbackButton = () => setFeedback(typeRewiews);
   return (
     <>
       <Description />
       <Options
         onClickFeedback={(feedbackType) => updateFeedback(feedbackType)}
+        resetFeedback={totalFeedback >= 1}
+        resetButton={resetFeedbackButton}
       />
       {totalFeedback >= 1 && <Feedback counter={feedback} />}
       {totalFeedback < 1 && <Notification />}

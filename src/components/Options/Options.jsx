@@ -1,4 +1,4 @@
-const Options = ({ onClickFeedback }) => {
+const Options = ({ onClickFeedback, resetFeedback, resetButton }) => {
   return (
     <ul>
       <li>
@@ -10,6 +10,11 @@ const Options = ({ onClickFeedback }) => {
       <li>
         <button onClick={() => onClickFeedback("bad")}>Bad</button>
       </li>
+      {resetFeedback >= 1 && (
+        <li>
+          <button onClick={resetButton}>Reset</button>
+        </li>
+      )}
     </ul>
   );
 };
