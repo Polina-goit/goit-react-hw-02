@@ -38,7 +38,7 @@ function App() {
       <Description />
       <Options
         onClickFeedback={(feedbackType) => updateFeedback(feedbackType)}
-        showResetFeedback={totalFeedback >= 1}
+        resetFeedback={totalFeedback >= 1}
         resetButton={resetFeedbackButton}
       />
       {totalFeedback >= 1 && (
