@@ -1,5 +1,5 @@
 import css from "./Options.module.css";
-const Options = ({ onClickFeedback, resetFeedback, resetButton }) => {
+const Options = ({ onClickFeedback, resetFeedback, showResetFeedback }) => {
   return (
     <ul className={css.buttonList}>
       <li>
@@ -28,7 +28,7 @@ const Options = ({ onClickFeedback, resetFeedback, resetButton }) => {
       </li>
       {resetFeedback >= 1 && (
         <li>
-          <button className={css.optionButton} onClick={resetButton}>
+          <button className={css.optionButton} onClick={showResetFeedback}>
             Reset
           </button>
         </li>
